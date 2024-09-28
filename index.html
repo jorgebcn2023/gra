@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Informe Técnico - Índice Volatility 75 (1s)</title>
+
+  <!-- Link para el archivo CSS -->
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- Chart.js Library -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Informe Técnico - Índice Volatility 75 (1s)</h1>
+
+    <!-- Tabla Resumen de la Operación -->
+    <h2>Resumen de la Operación</h2>
+    <table>
+      <tr>
+        <th>Operación Recomendada</th>
+        <td class="highlight">📈 Compra</td>
+      </tr>
+      <tr>
+        <th>Valor de Apertura</th>
+        <td>8,789.00</td>
+      </tr>
+      <tr>
+        <th>Take Profit</th>
+        <td>8,840.00</td>
+      </tr>
+      <tr>
+        <th>Stop Loss</th>
+        <td>8,720.00</td>
+      </tr>
+      <tr>
+        <th>Relación Riesgo/Recompensa</th>
+        <td>2.5:1</td>
+      </tr>
+      <tr>
+        <th>Porcentaje de Éxito</th>
+        <td>90%</td>
+      </tr>
+      <tr>
+        <th>Duración Estimada</th>
+        <td>45-60 minutos en M1, 2-3 horas en M15</td>
+      </tr>
+    </table>
+
+    <!-- Gráfico de Tendencia Multitemporal -->
+    <div class="chart-container">
+      <h2>Tendencia Multitemporal</h2>
+      <canvas id="tendenciaChart"></canvas>
+    </div>
+
+    <!-- Gráfico de Probabilidad de Éxito y Duración -->
+    <div class="chart-container">
+      <h2>Probabilidad de Éxito y Duración</h2>
+      <canvas id="successChart"></canvas>
+    </div>
+  </div>
+
+  <!-- Script para el comportamiento interactivo y gráficos -->
+  <script src="script.js"></script>
+
+</body>
+</html>
