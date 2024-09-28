@@ -68,3 +68,37 @@ const successChart = new Chart(ctx2, {
     }
   }
 });
+
+// Gráfico de Proyección de la Tendencia y Duración
+const ctx3 = document.getElementById('proyeccionChart').getContext('2d');
+const proyeccionChart = new Chart(ctx3, {
+  type: 'line',
+  data: {
+    labels: ['M1', 'M5', 'M15', 'H1'],
+    datasets: [{
+      label: 'Duración Estimada (min)',
+      data: [15, 45, 180, 1440],  // Duración estimada en minutos: M1, M5, M15, H1
+      borderColor: 'rgba(231, 76, 60, 1)',
+      backgroundColor: 'rgba(231, 76, 60, 0.2)',
+      fill: true,
+      tension: 0.4
+    }]
+  },
+  options: {
+    responsive: true,
+    scales: {
+      y: {
+        beginAtZero: true,
+        ticks: {
+          color: '#333',
+          callback: function(value) { return value + ' min'; }  // Agregar 'min' a los valores del eje Y
+        }
+      },
+      x: {
+        ticks: {
+          color: '#333'
+        }
+      }
+    }
+  }
+});
