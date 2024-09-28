@@ -1,104 +1,61 @@
-// Gráfico de Tendencia Multitemporal
-const ctx1 = document.getElementById('tendenciaChart').getContext('2d');
-const tendenciaChart = new Chart(ctx1, {
-  type: 'line',
-  data: {
-    labels: ['M1', 'M5', 'M15', 'H1'],
-    datasets: [{
-      label: 'Tendencia (%)',
-      data: [80, 70, 90, 85],  // Datos simulados para las tendencias
-      borderColor: 'rgba(46, 204, 113, 1)',
-      backgroundColor: 'rgba(46, 204, 113, 0.2)',
-      fill: true,
-      tension: 0.4
-    }]
-  },
-  options: {
-    responsive: true,
-    scales: {
-      y: {
-        beginAtZero: true,
-        ticks: {
-          color: '#333'
+// Configuración del gráfico de Fibonacci
+const ctxFib = document.getElementById('fibonacciChart').getContext('2d');
+const fibonacciChart = new Chart(ctxFib, {
+    type: 'line',
+    data: {
+        labels: ['8,620', '8,650', '8,690'], // Niveles de Fibonacci
+        datasets: [{
+            label: 'Retrocesos de Fibonacci',
+            data: [61.8, 50.0, 38.2],
+            backgroundColor: 'rgba(76, 175, 80, 0.2)',
+            borderColor: 'rgba(76, 175, 80, 1)',
+            borderWidth: 2,
+            fill: false
+        }]
+    },
+    options: {
+        scales: {
+            y: {
+                beginAtZero: false,
+                ticks: {
+                    callback: function(value) {
+                        return value + "%";
+                    }
+                }
+            }
         }
-      },
-      x: {
-        ticks: {
-          color: '#333'
-        }
-      }
     }
-  }
 });
 
-// Gráfico de Probabilidad de Éxito y Duración
-const ctx2 = document.getElementById('successChart').getContext('2d');
-const successChart = new Chart(ctx2, {
-  type: 'bar',
-  data: {
-    labels: ['Porcentaje de Éxito (%)', 'Duración Estimada (min)'],
-    datasets: [{
-      label: 'Indicadores',
-      data: [90, 60],  // Datos simulados para el éxito y la duración
-      backgroundColor: [
-        'rgba(52, 152, 219, 0.8)',
-        'rgba(231, 76, 60, 0.8)'
-      ],
-      borderColor: [
-        'rgba(52, 152, 219, 1)',
-        'rgba(231, 76, 60, 1)'
-      ],
-      borderWidth: 1
-    }]
-  },
-  options: {
-    responsive: true,
-    scales: {
-      y: {
-        beginAtZero: true,
-        ticks: {
-          color: '#333'
+// Configuración del gráfico de Duración Estimada
+const ctxDuracion = document.getElementById('duracionChart').getContext('2d');
+const duracionChart = new Chart(ctxDuracion, {
+    type: 'bar',
+    data: {
+        labels: ['H1', 'M15', 'M5', 'M1'], // Marcos temporales
+        datasets: [{
+            label: 'Duración estimada (minutos)',
+            data: [480, 120, 45, 10],
+            backgroundColor: [
+                'rgba(76, 175, 80, 0.6)',
+                'rgba(76, 175, 80, 0.6)',
+                'rgba(76, 175, 80, 0.6)',
+                'rgba(76, 175, 80, 0.6)'
+            ],
+            borderColor: [
+                'rgba(76, 175, 80, 1)',
+                'rgba(76, 175, 80, 1)',
+                'rgba(76, 175, 80, 1)',
+                'rgba(76, 175, 80, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            y: {
+                beginAtZero: true
+            }
         }
-      },
-      x: {
-        ticks: {
-          color: '#333'
-        }
-      }
     }
-  }
-});
-
-// Gráfico de Proyección de la Tendencia y Duración
-const ctx3 = document.getElementById('proyeccionChart').getContext('2d');
-const proyeccionChart = new Chart(ctx3, {
-  type: 'line',
-  data: {
-    labels: ['M1', 'M5', 'M15', 'H1'],
-    datasets: [{
-      label: 'Duración Estimada (min)',
-      data: [15, 45, 180, 1440],  // Duración estimada en minutos: M1, M5, M15, H1
-      borderColor: 'rgba(231, 76, 60, 1)',
-      backgroundColor: 'rgba(231, 76, 60, 0.2)',
-      fill: true,
-      tension: 0.4
-    }]
-  },
-  options: {
-    responsive: true,
-    scales: {
-      y: {
-        beginAtZero: true,
-        ticks: {
-          color: '#333',
-          callback: function(value) { return value + ' min'; }  // Agregar 'min' a los valores del eje Y
-        }
-      },
-      x: {
-        ticks: {
-          color: '#333'
-        }
-      }
-    }
-  }
 });
